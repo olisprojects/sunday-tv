@@ -7,7 +7,7 @@ resume points (powering Continue Watching) without needing a separate service ad
 import xbmc
 import xbmcgui
 
-from . import context, logger, settings
+from . import context, library, logger, settings
 from .debrid import client as debrid
 from .store import progress
 from .ui.listing import _apply_infotag
@@ -140,4 +140,4 @@ def _monitor(player, item, start_at):
             break
 
     if last_total > 0:
-        progress.save(item, last_pos, last_total)
+        library.save_progress(item, last_pos, last_total)

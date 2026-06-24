@@ -255,6 +255,13 @@ def season_episodes(show_item, season_number):
     return [normalize_episode(ep, show_item) for ep in obj.get("episodes", [])]
 
 
+def episode_detail(show_tmdb_id, season_number, episode_number):
+    """Fetch a single episode (used to enrich Trakt playback/watchlist stubs)."""
+    show = tv_detail(show_tmdb_id)
+    obj = _get("/tv/%s/season/%s/episode/%s" % (show_tmdb_id, season_number, episode_number))
+    return normalize_episode(obj, show)
+
+
 def _us_movie_cert(obj):
     for entry in (obj.get("release_dates") or {}).get("results", []):
         if entry.get("iso_3166_1") == "US":

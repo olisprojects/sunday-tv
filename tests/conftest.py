@@ -27,5 +27,13 @@ def fresh_profile(tmp_path):
     profile.mkdir()
     xbmcvfs.set_profile_base(str(profile))
     xbmcaddon.reset()
+
+    # Reset the per-process My List memo so Trakt state doesn't leak between tests.
+    try:
+        from resources.lib import library
+        library._invalidate()
+    except Exception:
+        pass
+
     yield
     xbmcaddon.reset()

@@ -69,6 +69,19 @@ the context menu → **Settings**). Set:
 | **Max quality** | cap playback resolution (e.g. 1080p on a basic Stick) |
 | **Autoplay best source** | on = play instantly; off = show a quality picker |
 
+### Optional: Trakt sync
+
+To sync My List, watched status and Continue Watching with a Trakt account across devices:
+
+1. Create a free Trakt API app at <https://trakt.tv/oauth/applications> (any name; redirect URI
+   `urn:ietf:wg:oauth:2.0:oob`). Note its **Client ID** and **Client Secret**.
+2. In Sunday TV settings open the **Trakt** tab, turn on **Enable Trakt sync**, and paste the
+   Client ID and Secret.
+3. Choose **Authorize Trakt** — a short code and a URL (`trakt.tv/activate`) appear. On any
+   device, visit the URL, sign in, and enter the code. The add‑on links automatically.
+
+Leave Trakt off to keep all watch state purely local on the device.
+
 Save, then open Sunday TV. You should see the Netflix‑style home rows (Trending, Popular,
 Genres, …). Pressing Play on a title the backend has links for will stream it and add it to
 **Continue Watching**.

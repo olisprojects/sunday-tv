@@ -42,7 +42,8 @@ with **trusted links**. You decide what it serves.
 2. When you press Play, it asks **your backend** to `resolve` that title (by TMDB/IMDb id) into
    a ranked list of direct, playable stream URLs.
 3. Kodi plays the best (or you pick the quality). Watch state — **My List**, watched flags and
-   resume points for **Continue Watching** — is stored locally on the device.
+   resume points for **Continue Watching** — is stored locally on the device, and **optionally
+   synced to your Trakt account** for a cross‑device library.
 
 See [`docs/architecture.md`](docs/architecture.md) for the full picture and the play sequence.
 
@@ -81,6 +82,10 @@ In Kodi, open **Sunday TV → Settings** and set:
 - **Backend URL** — e.g. `http://192.168.1.50:8770`.
 - **Backend API key** — the same `SUNDAYTV_API_KEY` you set on the server.
 - Quality / autoplay preferences.
+- *(Optional)* **Trakt** — enable Trakt sync, paste the client ID/secret from your free
+  [Trakt API app](https://trakt.tv/oauth/applications), and use **Authorize Trakt** to link the
+  device (a code + URL is shown). My List, watched status and Continue Watching then sync to
+  Trakt across devices; leave it off to keep everything purely local.
 
 ## Development
 

@@ -125,6 +125,55 @@ msgctxt "#30054"
 msgid "Show Trending row"
 msgstr ""
 
+# Settings — Trakt
+msgctxt "#30060"
+msgid "Trakt"
+msgstr ""
+
+msgctxt "#30061"
+msgid "Trakt sync (optional)"
+msgstr ""
+
+msgctxt "#30062"
+msgid "Enable Trakt sync"
+msgstr ""
+
+msgctxt "#30063"
+msgid "Sync My List, watched status and Continue Watching with your Trakt account"
+msgstr ""
+
+msgctxt "#30064"
+msgid "Trakt client ID"
+msgstr ""
+
+msgctxt "#30065"
+msgid "From your free Trakt API app at trakt.tv/oauth/applications"
+msgstr ""
+
+msgctxt "#30066"
+msgid "Trakt client secret"
+msgstr ""
+
+msgctxt "#30067"
+msgid "The client secret of your Trakt API app"
+msgstr ""
+
+msgctxt "#30068"
+msgid "Authorize Trakt"
+msgstr ""
+
+msgctxt "#30069"
+msgid "Link this device to your Trakt account"
+msgstr ""
+
+msgctxt "#30070"
+msgid "Scrobble playback to Trakt"
+msgstr ""
+
+msgctxt "#30071"
+msgid "Update your Trakt progress when you watch"
+msgstr ""
+
 # UI strings
 msgctxt "#31000"
 msgid "Continue Watching"
@@ -208,4 +257,29 @@ msgstr ""
 
 msgctxt "#31020"
 msgid "Play from beginning"
+msgstr ""
+
+# Trakt auth dialog
+msgctxt "#31030"
+msgid "Trakt authorization"
+msgstr ""
+
+msgctxt "#31031"
+msgid "Code"
+msgstr ""
+
+msgctxt "#31032"
+msgid "Trakt authorized"
+msgstr ""
+
+msgctxt "#31033"
+msgid "Trakt disconnected"
+msgstr ""
+
+msgctxt "#31034"
+msgid "Enter your Trakt client ID and secret in settings first"
+msgstr ""
+
+msgctxt "#31035"
+msgid "Trakt authorization failed"
 msgstr ""

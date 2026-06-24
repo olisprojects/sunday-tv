@@ -76,6 +76,23 @@ def max_quality():
     return _i("max_quality", 0)
 
 
+# --- Trakt (optional) ---
+def trakt_enabled():
+    return _b("trakt_enabled", False)
+
+
+def trakt_client_id():
+    return _s("trakt_client_id")
+
+
+def trakt_client_secret():
+    return _s("trakt_client_secret")
+
+
+def trakt_scrobble():
+    return _b("trakt_scrobble", True)
+
+
 # --- Home rows ---
 def row_continue():
     return _b("row_continue", True)

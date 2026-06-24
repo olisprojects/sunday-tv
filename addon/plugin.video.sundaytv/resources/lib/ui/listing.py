@@ -10,8 +10,8 @@ import json
 import xbmcgui
 import xbmcplugin
 
-from .. import context, settings
-from ..store import progress, watchlist
+from .. import context, library, settings
+from ..store import progress
 
 
 def _encode(item):
@@ -68,7 +68,7 @@ def _apply_watched(li, item):
 
 def _context_menu(item):
     menu = []
-    if watchlist.contains(item):
+    if library.mylist_contains(item):
         menu.append((
             settings.get_string(31011),
             "RunPlugin(%s)" % context.url(action="list_remove", item=_encode(item)),

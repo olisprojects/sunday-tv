@@ -6,10 +6,9 @@ import xbmc
 import xbmcgui
 import xbmcplugin
 
-from . import context, logger, settings
+from . import context, library, logger, settings
 from .metadata import tmdb
 from .metadata.tmdb import image_url
-from .store import progress, watchlist
 from .ui import listing, menus
 
 S = settings.get_string
@@ -60,6 +59,8 @@ class Router:
             return self._list_remove()
         if action == "toggle_watched":
             return self._toggle_watched()
+        if action == "trakt_auth":
+            return self._trakt_auth()
         if action == "settings":
             return settings.open_settings()
         logger.error("Unknown action: %s" % action)
@@ -68,9 +69,9 @@ class Router:
     # -------------------------------------------------------------------- rows
     def _row(self, row):
         if row == "continue":
-            return listing.render(progress.continue_watching(), content="movies")
+            return listing.render(library.continue_watching(), content="movies")
         if row == "mylist":
-            return listing.render(watchlist.list_items(), content="movies")
+            return listing.render(library.mylist_items(), content="movies")
         if not self._require_tmdb():
             return
         fetchers = {
@@ -146,21 +147,24 @@ class Router:
     def _list_add(self):
         item = self._item_param()
         if item:
-            watchlist.add(item)
+            library.mylist_add(item)
             xbmcgui.Dialog().notification("Sunday TV", S(31010), xbmcgui.NOTIFICATION_INFO, 2000)
 
     def _list_remove(self):
         item = self._item_param()
         if item:
-            watchlist.remove(item)
+            library.mylist_remove(item)
             xbmc.executebuiltin("Container.Refresh")
 
     def _toggle_watched(self):
         item = self._item_param()
         if item:
-            current = progress.get(item)["watched"]
-            progress.set_watched(item, not current)
+            library.set_watched(item, not library.is_watched(item))
             xbmc.executebuiltin("Container.Refresh")
+
+    def _trakt_auth(self):
+        from .trakt import auth as trakt_auth
+        trakt_auth.authorize()
 
     # ------------------------------------------------------------------ helpers
     def _item_param(self):

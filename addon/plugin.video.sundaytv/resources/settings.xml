@@ -61,6 +61,54 @@
                 </setting>
             </group>
         </category>
+        <category id="trakt" label="30060" help="">
+            <group id="1" label="30061">
+                <setting id="trakt_enabled" type="boolean" label="30062" help="30063">
+                    <level>0</level>
+                    <default>false</default>
+                    <control type="toggle"/>
+                </setting>
+                <setting id="trakt_client_id" type="string" label="30064" help="30065">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <dependencies>
+                        <dependency type="enable" setting="trakt_enabled">true</dependency>
+                    </dependencies>
+                    <control type="edit" format="string"><heading>30064</heading></control>
+                </setting>
+                <setting id="trakt_client_secret" type="string" label="30066" help="30067">
+                    <level>0</level>
+                    <default></default>
+                    <constraints><allowempty>true</allowempty></constraints>
+                    <dependencies>
+                        <dependency type="enable" setting="trakt_enabled">true</dependency>
+                    </dependencies>
+                    <control type="edit" format="string">
+                        <heading>30066</heading>
+                        <hidden>true</hidden>
+                    </control>
+                </setting>
+                <setting id="trakt_auth" type="action" label="30068" help="30069">
+                    <level>0</level>
+                    <data>RunPlugin(plugin://plugin.video.sundaytv/?action=trakt_auth)</data>
+                    <dependencies>
+                        <dependency type="enable" setting="trakt_enabled">true</dependency>
+                    </dependencies>
+                    <control type="button" format="action">
+                        <close>true</close>
+                    </control>
+                </setting>
+                <setting id="trakt_scrobble" type="boolean" label="30070" help="30071">
+                    <level>0</level>
+                    <default>true</default>
+                    <dependencies>
+                        <dependency type="enable" setting="trakt_enabled">true</dependency>
+                    </dependencies>
+                    <control type="toggle"/>
+                </setting>
+            </group>
+        </category>
         <category id="playback" label="30030" help="">
             <group id="1" label="30031">
                 <setting id="autoplay" type="boolean" label="30032" help="30033">

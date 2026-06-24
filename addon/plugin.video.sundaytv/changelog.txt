@@ -4,4 +4,5 @@ v1.0.0
 - TMDB metadata and artwork.
 - Playback via your own personal debrid backend (no external debrid provider required).
 - Local My List, watched state, and resume points for Continue Watching.
+- Optional Trakt sync (device-code login) for cross-device My List, watched status and Continue Watching.
 - Quality selection / autoplay and a maximum-quality cap.

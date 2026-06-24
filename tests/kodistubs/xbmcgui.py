@@ -50,6 +50,23 @@ class ListItem:
         return self._tag
 
 
+class DialogProgress:
+    def __init__(self):
+        self._canceled = False
+
+    def create(self, heading, message=""):
+        pass
+
+    def update(self, percent, message=""):
+        pass
+
+    def iscanceled(self):
+        return self._canceled
+
+    def close(self):
+        pass
+
+
 class Dialog:
     # Tests monkeypatch these as needed.
     def notification(self, heading, message, icon=NOTIFICATION_INFO, time=5000, sound=True):

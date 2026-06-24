@@ -54,6 +54,11 @@ Sunday TV has two independently runnable pieces plus the public metadata provide
   records progress.
 - **`store/watchlist.py`** — "My List", persisted as SQLite in the profile dir.
 - **`store/progress.py`** — resume points and watched flags powering "Continue Watching".
+- **`library.py`** — facade for My List / watched / resume that routes to **Trakt** (when
+  enabled and authorized) or the local stores, with local always written as the offline
+  fallback.
+- **`trakt/`** — optional Trakt integration: `client.py` (OAuth device-code auth, token
+  storage/refresh, and the sync endpoints) and `auth.py` (the device-code dialog flow).
 
 ## The Play sequence
 
@@ -100,8 +105,18 @@ the add‑on.
 ## Data & storage
 
 - **Add‑on profile dir** (`special://profile/addon_data/plugin.video.sundaytv/`): TMDB cache,
-  My List, and watch progress — all local SQLite, never leaves the device.
+  My List, watch progress (local SQLite), and — if Trakt is enabled — the Trakt OAuth tokens
+  (`trakt.json`). Local data never leaves the device; Trakt sync is opt‑in.
 - **Backend**: a single SQLite file (`sundaytv.db`) holding the `links` table.
+
+## Optional Trakt sync
+
+Trakt is entirely optional and off by default. When enabled and authorized (via the device‑code
+flow in `trakt/auth.py`), `library.py` mirrors My List, watched history, and playback progress
+to the user's Trakt account and reads Continue Watching / My List back from it — enriching the
+Trakt items with TMDB artwork for the Netflix‑style look. Every Trakt call is best‑effort: on
+any error the add‑on logs and falls back to local storage, so navigation never breaks. The user
+supplies their own free Trakt API app credentials; no credentials are shipped.
 
 ## Compatibility
 
