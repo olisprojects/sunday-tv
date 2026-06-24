@@ -1,0 +1,17 @@
+services:
+  sundaytv-debrid:
+    build: .
+    image: sunday-tv-debrid:latest
+    container_name: sundaytv-debrid
+    ports:
+      - "8770:8770"
+    environment:
+      # REQUIRED: set a long random key; mirror it in the Kodi add-on settings.
+      SUNDAYTV_API_KEY: "${SUNDAYTV_API_KEY:?set SUNDAYTV_API_KEY in your shell or a .env file}"
+      SUNDAYTV_DB: "/data/sundaytv.db"
+    volumes:
+      - sundaytv-data:/data
+    restart: unless-stopped
+
+volumes:
+  sundaytv-data:
