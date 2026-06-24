@@ -1,0 +1,4 @@
+# Dev/test dependencies for the whole repo.
+# Backend runtime deps live in server/requirements.txt (installed alongside for tests).
+pytest>=7.4
+httpx>=0.24

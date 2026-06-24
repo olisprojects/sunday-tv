@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.sundaytv"
+       name="Sunday TV"
+       version="1.0.0"
+       provider-name="Sunday TV">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_GB">Netflix-style movies &amp; TV via your own personal debrid service</summary>
+        <description lang="en_GB">Sunday TV is a movie and TV show front-end for Kodi with a Netflix-inspired interface. It browses metadata and artwork from TMDB and streams titles through your own self-hosted personal debrid service, with no external debrid provider required. Features Continue Watching, My List, search, and quality selection. Ships with no preconfigured sources: you supply your own TMDB API key and point it at your own backend.</description>
+        <platform>all</platform>
+        <license>MIT</license>
+        <forum></forum>
+        <website></website>
+        <source>https://github.com/olisprojects/sunday-tv</source>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon>

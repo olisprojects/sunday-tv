@@ -1,0 +1,7 @@
+v1.0.0
+- Initial release of Sunday TV.
+- Netflix-style home: Continue Watching, My List, Trending, Popular Movies/TV, Top Rated, Genres, Search.
+- TMDB metadata and artwork.
+- Playback via your own personal debrid backend (no external debrid provider required).
+- Local My List, watched state, and resume points for Continue Watching.
+- Quality selection / autoplay and a maximum-quality cap.
